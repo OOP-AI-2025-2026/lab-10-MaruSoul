@@ -1,5 +1,7 @@
 package ua.opnu;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class EasyTasks {
@@ -11,43 +13,40 @@ public class EasyTasks {
     }
 
     public List<Integer> doubling(List<Integer> nums) {
-        // TODO: напишіть вміст методу згідно умовам для того, щоб пройти тести
-        return null;
+        return nums.stream().map(x -> x * 2).toList();
     }
 
     public List<Integer> square(List<Integer> nums) {
-        // TODO: напишіть вміст методу згідно умовам для того, щоб пройти тести
-        return null;
+       return nums.stream().map(x -> x * x).toList();
     }
 
     public List<String> moreY(List<String> strings) {
-        // TODO: напишіть вміст методу згідно умовам для того, щоб пройти тести
-        return null;
+        return strings.stream().map(x -> "y" + x + "y").toList();
     }
 
     public List<Integer> noNeg(List<Integer> nums) {
-        // TODO: напишіть вміст методу згідно умовам для того, щоб пройти тести
-        return null;
+        return nums.stream().filter(x -> x >= 0).toList();
     }
 
     public List<Integer> no9(List<Integer> nums) {
-        // TODO: напишіть вміст методу згідно умовам для того, щоб пройти тести
-        return null;
+        return nums.stream().filter(x -> (x % 10) != 9).toList();
     }
 
     public List<String> noZ(List<String> strings) {
-        // TODO: напишіть вміст методу згідно умовам для того, щоб пройти тести
-        return null;
+        return strings.stream().filter(x -> !x.contains("z")).toList();
     }
 
     public List<String> refinedStrings(List<String> strings) {
-        // TODO: напишіть вміст методу згідно умовам для того, щоб пройти тести
-        return null;
+       return strings
+               .stream()
+               .distinct()
+               .sorted(Comparator.comparingInt(String::length)
+                       .reversed()
+               )
+               .toList();
     }
 
     public List<String> flatten(List<String> strings) {
-        // TODO: напишіть вміст методу згідно умовам для того, щоб пройти тести
-        return null;
+        return strings.stream().flatMap(x -> Arrays.stream(x.split(" "))).toList();
     }
-
 }
